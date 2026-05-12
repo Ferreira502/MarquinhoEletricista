@@ -109,6 +109,16 @@ body::after {
   color: #f5c400;
 }
 
+.icone-raio,
+.icone-servico,
+.icone-motivo,
+.icone-contato,
+.icone-placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .botao-navegacao {
   display: flex;
   align-items: center;
@@ -409,7 +419,8 @@ body::after {
 
 .icone-servico {
   margin: 0.1rem 0;
-  font-size: 1.5rem;
+  color: #f5c400;
+  font-size: 1.45rem;
   line-height: 1;
 }
 
@@ -491,8 +502,8 @@ body::after {
 
 .slide-carrossel {
   position: relative;
-  flex: 0 0 clamp(220px, 34vw, 290px);
-  height: clamp(250px, 40vw, 350px);
+  flex: 0 0 clamp(220px, 28vw, 280px);
+  height: clamp(240px, 32vw, 320px);
   border: 1px solid rgba(255, 255, 255, 0.03);
   border-radius: 1.25rem;
   background: #202020;
@@ -516,6 +527,11 @@ body::after {
 
 .placeholder-carrossel svg {
   opacity: 0.22;
+}
+
+.icone-placeholder {
+  color: rgba(245, 196, 0, 0.45);
+  font-size: 2.25rem;
 }
 
 .placeholder-carrossel span {
@@ -609,7 +625,8 @@ body::after {
 
 .icone-motivo {
   margin-bottom: 0.65rem;
-  font-size: 1.7rem;
+  color: #f5c400;
+  font-size: 1.5rem;
 }
 
 .titulo-motivo {
@@ -777,6 +794,7 @@ body::after {
 
 .icone-contato {
   margin-bottom: 0.2rem;
+  color: #f5c400;
   font-size: 1.4rem;
 }
 
@@ -941,6 +959,29 @@ body::after {
   .slide-carrossel {
     flex-basis: clamp(220px, 46vw, 280px);
     height: clamp(240px, 42vw, 320px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .cabecalho-carrossel {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .area-carrossel {
+    max-width: 1560px;
+    margin: 0 auto;
+  }
+
+  .trilha-carrossel {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .slide-carrossel {
+    flex-basis: 260px;
+    height: 310px;
   }
 }
 
@@ -1115,6 +1156,10 @@ body::after {
     height: clamp(230px, 78vw, 320px);
   }
 
+  .icone-placeholder {
+    font-size: 2rem;
+  }
+
   .faixa-cta {
     padding: 2.5rem 1rem;
   }
@@ -1182,12 +1227,14 @@ body::after {
 
 @media (max-width: 380px) {
   .logo-navegacao {
-    font-size: 0.82rem;
+    max-width: calc(100% - 118px);
+    font-size: 0.78rem;
   }
 
   .botao-navegacao {
-    padding: 0.5rem 0.65rem;
-    font-size: 0.62rem;
+    padding: 0.45rem 0.55rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.05em;
   }
 
   .titulo-principal {
