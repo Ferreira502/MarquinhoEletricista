@@ -125,9 +125,11 @@ document.querySelectorAll("a, button").forEach((elemento) => {
   let indiceAtual = 0;
   const ultimoIndice = slides.length - 1;
   let inicioX = 0;
+  let inicioY = 0;
   let arrastando = false;
   let deslocamentoBase = 0;
   let temporizador = null;
+  let movimentoHorizontal = false;
 
   slides.forEach((_, indice) => {
     const bolinha = document.createElement("div");
@@ -174,8 +176,10 @@ document.querySelectorAll("a, button").forEach((elemento) => {
 
   area.addEventListener("pointerdown", (evento) => {
     inicioX = evento.clientX;
+    inicioY = evento.clientY;
     deslocamentoBase = calcularDeslocamento(indiceAtual);
     arrastando = true;
+    movimentoHorizontal = false;
     trilha.style.transition = "none";
     area.setPointerCapture(evento.pointerId);
     pararTrocaAutomatica();
@@ -186,7 +190,18 @@ document.querySelectorAll("a, button").forEach((elemento) => {
       return;
     }
 
-    trilha.style.transform = `translateX(${deslocamentoBase + (evento.clientX - inicioX)}px)`;
+    const diferencaX = evento.clientX - inicioX;
+    const diferencaY = evento.clientY - inicioY;
+
+    if (!movimentoHorizontal) {
+      movimentoHorizontal = Math.abs(diferencaX) > Math.abs(diferencaY);
+    }
+
+    if (!movimentoHorizontal) {
+      return;
+    }
+
+    trilha.style.transform = `translateX(${deslocamentoBase + diferencaX}px)`;
   });
 
   area.addEventListener("pointerup", (evento) => {
@@ -197,7 +212,9 @@ document.querySelectorAll("a, button").forEach((elemento) => {
     arrastando = false;
     const diferenca = evento.clientX - inicioX;
 
-    if (diferenca < -50) {
+    if (!movimentoHorizontal) {
+      irParaSlide(indiceAtual);
+    } else if (diferenca < -50) {
       irParaSlide(indiceAtual + 1);
     } else if (diferenca > 50) {
       irParaSlide(indiceAtual - 1);

@@ -4,7 +4,7 @@ html {
 
 body {
   margin: 0;
-  background: #080808;
+  background: #141414;
   color: #efefea;
   font-family: "Barlow", sans-serif;
   font-size: clamp(0.875rem, 2vw, 1rem);
@@ -373,7 +373,7 @@ body::after {
   flex-direction: column;
   gap: 0.55rem;
   padding: 1.65rem 1.4rem;
-  background: #161616;
+  background: #202020;
   overflow: hidden;
   transition: background 0.25s;
 }
@@ -392,7 +392,7 @@ body::after {
 }
 
 .cartao-servico:hover {
-  background: #1e1e1e;
+  background: #2a2a2a;
 }
 
 .cartao-servico:hover::before {
@@ -454,13 +454,13 @@ body::after {
   height: 40px;
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 50%;
-  background: #1e1e1e;
+  background: #252525;
   color: #efefea;
   transition: background 0.2s, border-color 0.2s, opacity 0.2s;
 }
 
 .botao-carrossel:hover {
-  background: #161616;
+  background: #2e2e2e;
   border-color: #f5c400;
 }
 
@@ -474,6 +474,7 @@ body::after {
   cursor: grab;
   user-select: none;
   -webkit-user-select: none;
+  touch-action: pan-y;
 }
 
 .area-carrossel:active {
@@ -494,7 +495,7 @@ body::after {
   height: clamp(250px, 40vw, 350px);
   border: 1px solid rgba(255, 255, 255, 0.03);
   border-radius: 1.25rem;
-  background: #1e1e1e;
+  background: #202020;
   overflow: hidden;
   transition: transform 0.3s;
 }
@@ -593,7 +594,7 @@ body::after {
 .cartao-contato {
   border: 1px solid rgba(255, 255, 255, 0.03);
   border-radius: 1.25rem;
-  background: #161616;
+  background: #202020;
 }
 
 .cartao-motivo {
@@ -663,8 +664,12 @@ body::after {
 
 .faixa-cta {
   position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
   padding: clamp(3rem, 8vw, 5rem) clamp(1.25rem, 5vw, 2.5rem);
-  background: #f5c400;
+  background: linear-gradient(180deg, #f5c400 0%, #ffcf1f 100%);
   overflow: hidden;
   text-align: center;
 }
@@ -678,6 +683,8 @@ body::after {
 
 .conteudo-faixa-cta {
   position: relative;
+  width: 100%;
+  max-width: 100%;
 }
 
 .texto-menor-faixa {
@@ -706,13 +713,13 @@ body::after {
 }
 
 .botao-escuro {
-  background: #000;
+  background: #111111;
   color: #f5c400;
   transition: background 0.2s;
 }
 
 .botao-escuro:hover {
-  background: #111;
+  background: #1c1c1c;
 }
 
 .botao-whatsapp-faixa {
@@ -1108,6 +1115,14 @@ body::after {
     height: clamp(230px, 78vw, 320px);
   }
 
+  .faixa-cta {
+    padding: 2.5rem 1rem;
+  }
+
+  .titulo-faixa {
+    font-size: clamp(2rem, 11vw, 2.8rem);
+  }
+
   .paginacao-carrossel {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -1139,12 +1154,15 @@ body::after {
   .acoes-faixa-cta {
     flex-direction: column;
     align-items: stretch;
+    width: 100%;
   }
 
   .botao-escuro,
   .botao-whatsapp-faixa {
     justify-content: center;
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     padding: 0.95rem 1.25rem;
   }
 
@@ -1182,6 +1200,16 @@ body::after {
 
   .titulo-secao {
     font-size: clamp(1.7rem, 10vw, 2.2rem);
+  }
+
+  .faixa-cta {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+  .titulo-faixa {
+    font-size: 1.85rem;
+    line-height: 1.05;
   }
 
   .cartao-servico,
