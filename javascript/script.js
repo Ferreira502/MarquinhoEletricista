@@ -139,6 +139,12 @@ document.querySelectorAll("a, button").forEach((elemento) => {
   });
 
   function atualizarControles() {
+    if (conteudoCabeNaArea()) {
+      botaoAnterior.classList.add("desativado");
+      botaoProximo.classList.add("desativado");
+      return;
+    }
+
     paginacao.querySelectorAll(".bolinha-paginacao").forEach((bolinha, indice) => {
       bolinha.classList.toggle("ativa", indice === indiceAtual);
     });
@@ -154,8 +160,35 @@ document.querySelectorAll("a, button").forEach((elemento) => {
     return -Math.max(0, deslocamento);
   }
 
+  function conteudoCabeNaArea() {
+    if (slides.length === 0) {
+      return true;
+    }
+
+    const larguraSlides = slides.reduce((total, slide) => total + slide.offsetWidth, 0);
+    const larguraGaps = (slides.length - 1) * 16;
+    const larguraTotal = larguraSlides + larguraGaps;
+
+    return larguraTotal <= area.clientWidth;
+  }
+
   function irParaSlide(indice) {
     indiceAtual = Math.max(0, Math.min(indice, ultimoIndice));
+
+    if (conteudoCabeNaArea()) {
+      trilha.style.transition = "transform .45s cubic-bezier(.25,.46,.45,.94)";
+      trilha.style.justifyContent = "center";
+      trilha.style.paddingLeft = "0";
+      trilha.style.paddingRight = "0";
+      trilha.style.transform = "translateX(0)";
+      indiceAtual = 0;
+      atualizarControles();
+      return;
+    }
+
+    trilha.style.justifyContent = "";
+    trilha.style.paddingLeft = "";
+    trilha.style.paddingRight = "";
     trilha.style.transition = "transform .45s cubic-bezier(.25,.46,.45,.94)";
     trilha.style.transform = `translateX(${calcularDeslocamento(indiceAtual)}px)`;
     atualizarControles();
