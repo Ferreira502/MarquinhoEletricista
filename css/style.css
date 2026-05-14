@@ -8,6 +8,7 @@ body {
   overflow-x: hidden;
 }
 
+header,
 main,
 section,
 div,
@@ -1022,11 +1023,11 @@ button {
 
 @media (max-width: 680px) {
   .largura-site {
-    width: min(1520px, calc(100% - 1.25rem));
+    width: calc(100% - 1rem);
   }
 
   .abertura {
-    padding-top: 2.5rem;
+    padding-top: 1.4rem;
   }
 
   .abertura h1,
@@ -1096,14 +1097,23 @@ button {
 
   .caixa-cta {
     border-radius: 26px;
+    padding: 1.25rem 1rem;
   }
 
   .acoes-cta {
     max-width: none;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .acoes-cta .botao {
+    width: 100%;
   }
 
   .grade-rodape {
     gap: 1.5rem;
+    padding-top: 0;
+    padding-bottom: 1.5rem;
   }
 
   .card-portfolio-destaque {
@@ -1127,6 +1137,7 @@ button {
   .grade-rodape {
     width: 100%;
     max-width: 100%;
+    box-sizing: border-box;
   }
 
   .grade-rodape > div:first-child {
@@ -1140,7 +1151,7 @@ button {
   }
 
   .largura-site {
-    width: calc(100% - 1rem);
+    width: calc(100% - 0.75rem);
   }
 
   .abertura-texto,
@@ -1153,8 +1164,8 @@ button {
   .item-faq,
   .caixa-cta,
   .grade-rodape {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
   }
 
   .barra-topo {
@@ -1176,8 +1187,17 @@ button {
   }
 
   .botao {
-    padding: 0.9rem 1rem;
+    padding: 0.88rem 0.9rem;
     font-size: 0.88rem;
+  }
+
+  .menu-site {
+    left: 0;
+    right: 0;
+  }
+
+  .caixa-cta {
+    padding: 1rem 0.9rem;
   }
 
   .card-numero {
@@ -1210,6 +1230,10 @@ button {
   .card-portfolio img,
   .card-portfolio video {
     height: 13.5rem;
+  }
+
+  .abertura-contato span {
+    font-size: 0.92rem;
   }
 }
 
