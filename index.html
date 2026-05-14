@@ -3,178 +3,501 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Marquinho Eletricista</title>
-  <meta name="description" content="Serviços elétricos residenciais e comerciais em Visconde do Rio Branco. Orçamento grátis. Atendimento 24h." />
+  <title>Marquinho Eletricista | Eletricista em Visconde do Rio Branco e região</title>
+  <meta
+    name="description"
+    content="Eletricista residencial e comercial em Visconde do Rio Branco e região. Instalações, reparos, quadros elétricos, iluminação e orçamento rápido pelo WhatsApp."
+  />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Archivo:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" href="assets/MarquinFoto.png" type="image/png" />
+  <link rel="icon" href="assets/MarquinFoto02.jpeg" type="image/png" />
 </head>
 <body>
-  <canvas id="canvas-faixas"></canvas>
+  <a
+    class="botao-whatsapp"
+    href="https://wa.me/5532988215255?text=Olá%20Marquinho%2C%20vim%20pelo%20site%20e%20quero%20um%20orçamento."
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Chamar no WhatsApp"
+  >
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
 
-  <div class="site">
-    <nav class="barra-navegacao" id="barra-navegacao">
-      <div class="logo-navegacao"><i class="fa-solid fa-bolt icone-raio"></i>MARQUINHO ELETRICISTA</div>
-      <a class="botao-navegacao" href="https://wa.me/5532988215255?text=Olá%20Marquinho%2C%20vim%20pelo%20site%20e%20quero%20fazer%20um%20orçamento." target="_blank">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
-        Orçamento grátis
+  <header class="topo-site" id="inicio">
+    <div class="largura-site barra-topo">
+      <a class="marca" href="#inicio" aria-label="Marquinho Eletricista">
+        <span class="marca-caixa">
+          <img src="assets/MarquinFoto02.jpeg" alt="Logo Marquinho Eletricista" class="marca-imagem" />
+        </span>
+        <span class="marca-texto">
+          <strong>Marquinho Eletricista</strong>
+          <small>Visconde do Rio Branco e região</small>
+        </span>
       </a>
-    </nav>
 
-    <section class="secao-principal">
-      <div class="grade-principal"></div>
-      <div class="brilho-principal"></div>
-      <div class="conteudo-principal">
-        <div class="selo-principal">Eletricista em VRB</div>
-        <h1 class="titulo-principal">Sua instalação<br /><em>no padrão certo.</em></h1>
-        <p class="texto-principal">Serviços elétricos residenciais e comerciais com qualidade, segurança e garantia. Atendimento ágil em Visconde do Rio Branco e região.</p>
-        <div class="acoes-principais">
-          <a class="botao-destaque" href="https://wa.me/5532988215255?text=Olá%20Marquinho%2C%20quero%20um%20orçamento%20para%20um%20serviço%20elétrico." target="_blank">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
-            Falar no WhatsApp
+      <button class="botao-menu" type="button" aria-expanded="false" aria-controls="menu-site" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="menu-site" id="menu-site" aria-label="Principal">
+        <a href="#servicos">Serviços</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#avaliacoes">Avaliações</a>
+        <a href="#faq">FAQ</a>
+        <a class="botao botao-amarelo menu-destaque" href="https://wa.me/5532988215255?text=Olá%20Marquinho%2C%20quero%20um%20orçamento%20para%20um%20serviço%20elétrico." target="_blank" rel="noreferrer">
+          Pedir orçamento
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="abertura">
+      <div class="largura-site abertura-grade">
+        <div class="abertura-texto surgir">
+          <span class="selo">Eletricista residencial e comercial em VRB</span>
+          <h1>Serviço elétrico com acabamento profissional, segurança e resposta rápida.</h1>
+          <p class="abertura-descricao">
+            Instalações, manutenções, quadros elétricos, iluminação e adequações feitas com organização, clareza e atenção aos detalhes.
+          </p>
+
+          <div class="abertura-acoes">
+            <a class="botao botao-amarelo" href="https://wa.me/5532988215255?text=Olá%20Marquinho%2C%20quero%20um%20orçamento%20para%20um%20serviço%20elétrico." target="_blank" rel="noreferrer">
+              <i class="fa-brands fa-whatsapp"></i>
+              Pedir orçamento no WhatsApp
+            </a>
+            <a class="botao botao-claro" href="#servicos">
+              Ver serviços
+            </a>
+          </div>
+
+          <div class="abertura-contato">
+            <span><i class="fa-solid fa-phone"></i> (32) 98821-5255</span>
+            <span><i class="fa-solid fa-location-dot"></i> Visconde do Rio Branco, MG</span>
+          </div>
+
+          <div class="abertura-numeros">
+            <article class="card-numero">
+              <strong class="numero-destaque" data-valor-final="100" data-sufixo="+">0</strong>
+              <span>Serviços realizados</span>
+            </article>
+            <article class="card-numero">
+              <strong class="numero-destaque" data-valor-final="6" data-sufixo="+">0</strong>
+              <span>Cidades atendidas</span>
+            </article>
+            <article class="card-numero">
+              <strong class="numero-destaque" data-valor-final="100" data-sufixo="%">0</strong>
+              <span>Compromisso com qualidade</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="abertura-lateral surgir">
+          <div class="card-foto-abertura">
+            <img src="assets/MarquinFoto02.jpeg" alt="Marquinho Eletricista" class="foto-abertura" />
+          </div>
+
+          <div class="painel-abertura">
+            <span class="mini-selo">Atendimento direto</span>
+            <h2>Pré-orçamento rápido pelo WhatsApp, sem burocracia.</h2>
+            <ul class="lista-check">
+              <li>Instalações e pontos novos</li>
+              <li>Quadros elétricos e disjuntores</li>
+              <li>Iluminação residencial e comercial</li>
+              <li>Manutenção e correções elétricas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloco faixa">
+      <div class="largura-site faixa-grade surgir">
+        <div>
+          <span class="selo">Confiança antes do contato</span>
+          <h2>Um site profissional precisa transmitir clareza, qualidade e autoridade logo na primeira dobra.</h2>
+        </div>
+        <div class="faixa-pontos">
+          <span><i class="fa-solid fa-circle-check"></i> Resposta rápida</span>
+          <span><i class="fa-solid fa-circle-check"></i> Atendimento regional</span>
+          <span><i class="fa-solid fa-circle-check"></i> Execução organizada</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloco" id="servicos">
+      <div class="largura-site cabecalho-bloco surgir">
+        <span class="selo">Serviços</span>
+        <h2>Soluções elétricas para casa, comércio, obra e reforma.</h2>
+        <p>
+          Cada serviço foi organizado para facilitar o entendimento do cliente e destacar os principais pontos de valor.
+        </p>
+      </div>
+
+      <div class="largura-site grade-cards grade-servicos">
+        <article class="card-servico surgir">
+          <span class="icone-servico"><i class="fa-solid fa-plug-circle-plus"></i></span>
+          <h3>Instalações elétricas</h3>
+          <p>Tomadas, interruptores, pontos de luz, chuveiro, ventilador e novos circuitos.</p>
+        </article>
+        <article class="card-servico surgir">
+          <span class="icone-servico"><i class="fa-solid fa-table-cells-large"></i></span>
+          <h3>Quadros elétricos</h3>
+          <p>Montagem, revisão, troca de disjuntores e reorganização da distribuição elétrica.</p>
+        </article>
+        <article class="card-servico surgir">
+          <span class="icone-servico"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+          <h3>Reparos e manutenção</h3>
+          <p>Mau contato, queda de energia interna, curto-circuito e falhas recorrentes.</p>
+        </article>
+        <article class="card-servico surgir">
+          <span class="icone-servico"><i class="fa-regular fa-lightbulb"></i></span>
+          <h3>Iluminação</h3>
+          <p>LED, spots, luminárias, fachadas e soluções para valorizar e melhorar o ambiente.</p>
+        </article>
+        <article class="card-servico surgir">
+          <span class="icone-servico"><i class="fa-solid fa-house"></i></span>
+          <h3>Obras e reformas</h3>
+          <p>Infraestrutura elétrica para construção, ampliação e modernização de ambientes.</p>
+        </article>
+        <article class="card-servico card-servico-destaque surgir">
+          <span class="icone-servico"><i class="fa-brands fa-whatsapp"></i></span>
+          <h3>Quer agilizar o orçamento?</h3>
+          <p>Envie fotos ou vídeo pelo WhatsApp e receba uma orientação inicial sem compromisso.</p>
+          <a class="link-texto" href="https://wa.me/5532988215255?text=Olá%20Marquinho%2C%20quero%20uma%20avaliação%20do%20meu%20serviço%20elétrico." target="_blank" rel="noreferrer">
+            Falar agora
           </a>
-          <a class="botao-secundario" href="tel:+5532999995255">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
+        </article>
+      </div>
+    </section>
+
+    <section class="bloco bloco-suave" id="diferenciais">
+      <div class="largura-site cabecalho-bloco surgir">
+        <span class="selo">Diferenciais</span>
+        <h2>Mais confiança no atendimento, mais organização na execução.</h2>
+        <p>
+          A ideia é mostrar profissionalismo não só no serviço, mas também na forma de apresentar a empresa.
+        </p>
+      </div>
+
+      <div class="largura-site grade-cards grade-diferenciais">
+        <article class="card-diferencial surgir">
+          <h3>Diagnóstico claro</h3>
+          <p>O cliente entende o problema, a solução indicada e o que realmente precisa ser feito.</p>
+        </article>
+        <article class="card-diferencial surgir">
+          <h3>Acabamento limpo</h3>
+          <p>Organização do ambiente, atenção aos detalhes e cuidado visual no resultado final.</p>
+        </article>
+        <article class="card-diferencial surgir">
+          <h3>Agilidade no contato</h3>
+          <p>WhatsApp como principal canal para responder rápido e facilitar o pré-orçamento.</p>
+        </article>
+        <article class="card-diferencial surgir">
+          <h3>Atendimento regional</h3>
+          <p>Visconde do Rio Branco e cidades próximas com disponibilidade conforme agenda.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="bloco">
+      <div class="largura-site area-processo">
+        <div class="texto-processo surgir">
+          <span class="selo">Como funciona</span>
+          <h2>Um processo simples para transformar dúvida em orçamento.</h2>
+          <p>
+            A jornada foi organizada para parecer profissional e prática, como em uma landing page comercial forte.
+          </p>
+        </div>
+
+        <div class="grade-processo">
+          <article class="card-processo surgir">
+            <span>1</span>
+            <div>
+              <h3>Contato inicial</h3>
+              <p>Você envia mensagem, foto ou vídeo explicando o serviço.</p>
+            </div>
+          </article>
+          <article class="card-processo surgir">
+            <span>2</span>
+            <div>
+              <h3>Análise</h3>
+              <p>É feita uma avaliação inicial e, quando necessário, agendamento de visita.</p>
+            </div>
+          </article>
+          <article class="card-processo surgir">
+            <span>3</span>
+            <div>
+              <h3>Orçamento</h3>
+              <p>O cliente recebe a proposta com mais clareza sobre escopo e execução.</p>
+            </div>
+          </article>
+          <article class="card-processo surgir">
+            <span>4</span>
+            <div>
+              <h3>Execução</h3>
+              <p>Serviço feito com segurança, organização e foco em entregar um bom acabamento.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloco" id="portfolio">
+      <div class="largura-site area-portfolio">
+        <div class="cabecalho-bloco surgir">
+          <span class="selo">Portfólio</span>
+          <h2>Trabalhos reais para reforçar percepção de qualidade.</h2>
+          <p>
+            As imagens entram como prova visual do serviço e ajudam o cliente a confiar mais rápido.
+          </p>
+        </div>
+
+        <div class="abas-portfolio surgir" data-grupo-abas>
+          <div class="lista-abas-portfolio" role="tablist" aria-label="Portfólio">
+            <button
+              class="aba-portfolio ativo"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="portfolio-fotos"
+              id="aba-fotos"
+              data-botao-aba="fotos"
+            >
+              Fotos
+            </button>
+            <button
+              class="aba-portfolio"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="portfolio-videos"
+              id="aba-videos"
+              data-botao-aba="videos"
+            >
+              Vídeos
+            </button>
+          </div>
+
+          <div
+            class="painel-portfolio ativo"
+            id="portfolio-fotos"
+            role="tabpanel"
+            aria-labelledby="aba-fotos"
+            data-painel-aba="fotos"
+          >
+            <div class="grade-portfolio grade-fotos">
+              <figure class="card-portfolio card-portfolio-destaque">
+                <img src="assets/trabalho01.png" alt="Instalação elétrica residencial" loading="lazy" />
+                <figcaption>Instalação residencial com acabamento limpo e organização visual.</figcaption>
+              </figure>
+              <figure class="card-portfolio">
+                <img src="assets/trabalho02.png" alt="Projeto de iluminação em gesso" loading="lazy" />
+                <figcaption>Projeto de iluminação valorizando o ambiente com melhor composição.</figcaption>
+              </figure>
+              <figure class="card-portfolio">
+                <img src="assets/trabalho09.jpeg" alt="Serviço elétrico finalizado" loading="lazy" />
+                <figcaption>Registro de serviço concluído com atenção ao detalhe e apresentação final.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div
+            class="painel-portfolio"
+            id="portfolio-videos"
+            role="tabpanel"
+            aria-labelledby="aba-videos"
+            data-painel-aba="videos"
+            hidden
+          >
+            <div class="grade-portfolio grade-videos">
+              <figure class="card-portfolio card-video card-portfolio-destaque">
+                <video controls muted playsinline preload="metadata">
+                  <source src="assets/trabalho03.mp4" type="video/mp4" />
+                </video>
+                <figcaption>Execução prática mostrando acabamento e andamento do serviço.</figcaption>
+              </figure>
+              <figure class="card-portfolio card-video">
+                <video controls muted playsinline preload="metadata">
+                  <source src="assets/trabalho04.mp4" type="video/mp4" />
+                </video>
+                <figcaption>Detalhes do processo em vídeo para reforçar confiança no trabalho realizado.</figcaption>
+              </figure>
+              <figure class="card-portfolio card-video">
+                <video controls muted playsinline preload="metadata">
+                  <source src="assets/trabalho05.mp4" type="video/mp4" />
+                </video>
+                <figcaption>Apresentação visual do serviço com foco em organização e resultado.</figcaption>
+              </figure>
+              <figure class="card-portfolio card-video">
+                <video controls muted playsinline preload="metadata">
+                  <source src="assets/trabalho06.mp4" type="video/mp4" />
+                </video>
+                <figcaption>Mais um exemplo de execução para ampliar a prova visual do portfólio.</figcaption>
+              </figure>
+              <figure class="card-portfolio card-video">
+                <video controls muted playsinline preload="metadata">
+                  <source src="assets/trabalho07.mp4" type="video/mp4" />
+                </video>
+                <figcaption>Registro em vídeo mostrando presença profissional e andamento do atendimento.</figcaption>
+              </figure>
+              <figure class="card-portfolio card-video">
+                <video controls muted playsinline preload="metadata">
+                  <source src="assets/trabalho08.mp4" type="video/mp4" />
+                </video>
+                <figcaption>Material em vídeo para reforçar credibilidade e percepção de qualidade.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloco bloco-suave" id="avaliacoes">
+      <div class="largura-site cabecalho-bloco surgir">
+        <span class="selo">Avaliações</span>
+        <h2>Depoimentos que fortalecem a credibilidade do serviço.</h2>
+        <p>
+          Uma boa prova social reduz objeção e aumenta a chance do cliente chamar no WhatsApp.
+        </p>
+      </div>
+
+      <div class="largura-site grade-cards grade-avaliacoes">
+        <article class="card-avaliacao surgir">
+          <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+          <p>"Excelente profissional, serviço de primeira. Pode confiar!"</p>
+          <strong>Rafael M.</strong>
+          <span>Visconde do Rio Branco</span>
+        </article>
+        <article class="card-avaliacao surgir">
+          <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+          <p>"Ótimo profissional, atendeu minhas expectativas. Muito comprometido com o trabalho."</p>
+          <strong>Regis V.</strong>
+          <span>Visconde do Rio Branco</span>
+        </article>
+        <article class="card-avaliacao surgir">
+          <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+          <p>"Excelente eletricista, cumpre prazo e entrega um acabamento caprichado."</p>
+          <strong>João C.</strong>
+          <span>Visconde do Rio Branco</span>
+        </article>
+        <article class="card-avaliacao surgir">
+          <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+          <p>"Um excelente profissional. O seu trabalho é com muito capricho. Eletricista de qualidade."</p>
+          <strong>Ingrid F.</strong>
+          <span>Visconde do Rio Branco</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="bloco">
+      <div class="largura-site caixa-cobertura surgir">
+        <div class="texto-cobertura">
+          <span class="selo">Área atendida</span>
+          <h2>Atendimento em VRB e cidades da região.</h2>
+          <p>Disponibilidade para Visconde do Rio Branco e municípios próximos da Zona da Mata Mineira.</p>
+        </div>
+
+        <div class="lista-cobertura">
+          <span>Visconde do Rio Branco</span>
+          <span>São Geraldo</span>
+          <span>Guiricema</span>
+          <span>Ubá</span>
+          <span>Viçosa</span>
+          <span>Coimbra</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloco" id="faq">
+      <div class="largura-site cabecalho-bloco surgir">
+        <span class="selo">Perguntas frequentes</span>
+        <h2>Respostas diretas para tirar as dúvidas mais comuns.</h2>
+      </div>
+
+      <div class="largura-site lista-faq">
+        <details class="item-faq surgir">
+          <summary>Quais serviços você atende?</summary>
+          <p>Instalações elétricas, reparos, iluminação, quadros elétricos, manutenção residencial e comercial, além de apoio para obras e reformas.</p>
+        </details>
+        <details class="item-faq surgir">
+          <summary>O orçamento é gratuito?</summary>
+          <p>Sim. O primeiro contato e a avaliação inicial são sem compromisso, e muita coisa já pode ser adiantada com fotos ou vídeo.</p>
+        </details>
+        <details class="item-faq surgir">
+          <summary>Você atende fora de Visconde do Rio Branco?</summary>
+          <p>Sim. O atendimento também pode acontecer em cidades próximas, conforme disponibilidade e tipo de serviço.</p>
+        </details>
+        <details class="item-faq surgir">
+          <summary>Como agilizar o atendimento?</summary>
+          <p>Envie mensagem com fotos, vídeo e uma explicação breve do problema para acelerar a orientação inicial.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="bloco-cta">
+      <div class="largura-site caixa-cta surgir">
+        <div>
+          <span class="selo">Pronto para pedir orçamento?</span>
+          <h2>Fale direto com o profissional e receba uma resposta rápida pelo WhatsApp.</h2>
+          <p>Contato sem burocracia, orientação inicial e atendimento em Visconde do Rio Branco e região.</p>
+        </div>
+        <div class="acoes-cta">
+          <a class="botao botao-amarelo" href="https://wa.me/5532988215255?text=Olá%20Marquinho%2C%20quero%20pedir%20um%20orçamento." target="_blank" rel="noreferrer">
+            <i class="fa-brands fa-whatsapp"></i>
+            Pedir orçamento
+          </a>
+          <a class="botao botao-claro" href="tel:+5532988215255">
+            <i class="fa-solid fa-phone-volume"></i>
             Ligar agora
           </a>
         </div>
       </div>
-
-      <div class="estatisticas-principais">
-        <div class="bloco-estatistica"><div class="numero-estatistica" data-target="100" data-suf="+">500+</div><div class="rotulo-estatistica">Serviços realizados</div></div>
-        <div class="bloco-estatistica"><div class="numero-estatistica" data-target="100" data-suf="%">100%</div><div class="rotulo-estatistica">Garantia</div></div>
-      </div>
     </section>
+  </main>
 
-    <section class="secao">
-      <div class="container">
-        <div class="aparecer">
-          <p class="etiqueta-secao">O que eu faço</p>
-          <h2 class="titulo-secao">Serviços <em>completos</em></h2>
-          <p class="texto-secao">Do reparo simples à instalação completa, tudo com segurança e nota fiscal.</p>
-        </div>
-        <div class="grade-servicos aparecer">
-          <div class="cartao-servico"><span class="numero-servico">01</span><div class="icone-servico"><i class="fa-solid fa-plug-circle-bolt"></i></div><div class="nome-servico">Instalações Elétricas</div><div class="descricao-servico">Tomadas, interruptores, pontos de luz e circuitos novos.</div></div>
-          <div class="cartao-servico"><span class="numero-servico">02</span><div class="icone-servico"><i class="fa-solid fa-boxes-stacked"></i></div><div class="nome-servico">Quadros Elétricos</div><div class="descricao-servico">Montagem, revisão e modernização de quadros de distribuição.</div></div>
-          <div class="cartao-servico"><span class="numero-servico">03</span><div class="icone-servico"><i class="fa-solid fa-screwdriver-wrench"></i></div><div class="nome-servico">Reparos e Manutenção</div><div class="descricao-servico">Curto-circuito, disjuntor queimado, fiação com defeito.</div></div>
-          <div class="cartao-servico"><span class="numero-servico">04</span><div class="icone-servico"><i class="fa-regular fa-lightbulb"></i></div><div class="nome-servico">Iluminação</div><div class="descricao-servico">LED, spots embutidos, pendentes, jardim e fachada.</div></div>
-          <div class="cartao-servico"><span class="numero-servico">06</span><div class="icone-servico"><i class="fa-solid fa-building"></i></div><div class="nome-servico">Obras e Reformas</div><div class="descricao-servico">Projeto elétrico completo para construções e reformas.</div></div>
-        </div>
+  <footer class="rodape-site">
+    <div class="largura-site grade-rodape">
+      <div>
+        <a class="marca marca-rodape" href="#inicio">
+          <span class="marca-caixa">
+            <img src="assets/MarquinFoto02.jpeg" alt="Logo Marquinho Eletricista" class="marca-imagem" />
+          </span>
+          <span class="marca-texto">
+            <strong>Marquinho Eletricista</strong>
+            <small>Visconde do Rio Branco e região</small>
+          </span>
+        </a>
+        <p class="texto-rodape">
+          Serviços elétricos com atendimento direto, organização e foco em segurança.
+        </p>
       </div>
-    </section>
 
-    <section class="secao-carrossel">
-      <div class="cabecalho-carrossel container">
-        <div class="aparecer">
-          <p class="etiqueta-secao">Portfólio</p>
-          <h2 class="titulo-secao">Trabalhos <em>realizados</em></h2>
-        </div>
-        <div class="navegacao-carrossel aparecer">
-          <button class="botao-carrossel desativado" id="botao-anterior" aria-label="Anterior"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6" /></svg></button>
-          <button class="botao-carrossel" id="botao-proximo" aria-label="Próximo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6" /></svg></button>
-        </div>
+      <div class="coluna-rodape">
+        <h3>Contato</h3>
+        <a href="https://wa.me/5532988215255?text=Olá%20Marquinho%2C%20vim%20pelo%20site." target="_blank" rel="noreferrer">(32) 98821-5255</a>
+        <a href="tel:+5532988215255">Ligar agora</a>
+        <a href="https://instagram.com/marquinhovrb1" target="_blank" rel="noreferrer">@marquinhovrb1</a>
       </div>
-      <div class="area-carrossel" id="area-carrossel">
-        <div class="trilha-carrossel" id="trilha-carrossel">
-          <div class="slide-carrossel">
-            <img class="imagem-carrossel" src="assets/trabalho01.png" alt="Trabalho 1" />
-            <div class="legenda-carrossel">Instalação residencial</div>
-          </div>
-          <div class="slide-carrossel">
-            <img class="imagem-carrossel" src="assets/trabalho02.png" alt="Trabalho 2" />
-            <div class="legenda-carrossel">Iluminação em gesso</div>
-          </div>
-        </div>
-      </div>
-      <div class="paginacao-carrossel" id="paginacao-carrossel"></div>
-    </section>
 
-    <section class="secao">
-      <div class="container">
-        <div class="aparecer">
-          <p class="etiqueta-secao">Por que me escolher</p>
-          <h2 class="titulo-secao">Compromisso <em>com você</em></h2>
-        </div>
-        <div class="grade-motivos">
-          <div class="cartao-motivo aparecer"><div class="icone-motivo"><i class="fa-solid fa-circle-check"></i></div><div class="titulo-motivo">Serviço com garantia</div><div class="descricao-motivo">Todo trabalho tem garantia por escrito. Se der problema, volto sem custo.</div></div>
-          <div class="cartao-motivo aparecer"><div class="icone-motivo"><i class="fa-solid fa-clipboard-list"></i></div><div class="titulo-motivo">Orçamento 100% grátis</div><div class="descricao-motivo">Vou até você avaliar, sem compromisso e sem cobrar a visita.</div></div>
-          </div>
-      </div>
-    </section>
-
-    <section class="secao secao-sem-topo">
-      <div class="container">
-        <div class="aparecer">
-          <p class="etiqueta-secao">Clientes</p>
-          <h2 class="titulo-secao">O que falam <em>de mim</em></h2>
-        </div>
-        <div class="grade-avaliacoes">
-          <div class="cartao-avaliacao aparecer"><div class="estrelas-avaliacao">★★★★★</div><p class="texto-avaliacao">"Excelente profissional, serviço de primeira. Pode confiar!"</p><div class="autor-avaliacao">Rafael M.</div><div class="cidade-avaliacao">VRB</div></div>
-          <div class="cartao-avaliacao aparecer"><div class="estrelas-avaliacao">★★★★★</div><p class="texto-avaliacao">"Ótimo profissional, atendeu minhas expectativas. Muito comprometido com o trabalho."</p><div class="autor-avaliacao">Regis V.</div><div class="cidade-avaliacao">VRB</div></div>
-          <div class="cartao-avaliacao aparecer"><div class="estrelas-avaliacao">★★★★★</div><p class="texto-avaliacao">"Excelente profissional, muito capacitado, prestativo, honesto e muito gente boa! Recomendo muito."</p><div class="autor-avaliacao">Adilson F.</div><div class="cidade-avaliacao">VRB</div></div>
-          <div class="cartao-avaliacao aparecer"><div class="estrelas-avaliacao">★★★★★</div><p class="texto-avaliacao">"Ótimo serviço! Pontualidade, atenção aos detalhes. Recomendo."</p><div class="autor-avaliacao">Carla R.</div><div class="cidade-avaliacao">VRB</div></div>
-          <div class="cartao-avaliacao aparecer"><div class="estrelas-avaliacao">★★★★★</div><p class="texto-avaliacao">"Parabéns pelo excelente trabalho, pela competência e pelo compromisso em tudo o que faz."</p><div class="autor-avaliacao">Cristiano S.</div><div class="cidade-avaliacao">VRB</div></div>
-          <div class="cartao-avaliacao aparecer"><div class="estrelas-avaliacao">★★★★★</div><p class="texto-avaliacao">"Excelente eletricista, cumpre com prazo e tem um acabamento caprichado."</p><div class="autor-avaliacao">João C.</div><div class="cidade-avaliacao">VRB</div></div>
-          <div class="cartao-avaliacao aparecer"><div class="estrelas-avaliacao">★★★★★</div><p class="texto-avaliacao">"Excelente profissional, de compromisso."</p><div class="autor-avaliacao">Ruan D.</div><div class="cidade-avaliacao">VRB</div></div>
-          <div class="cartao-avaliacao aparecer"><div class="estrelas-avaliacao">★★★★★</div><p class="texto-avaliacao">"Um excelente profissional. O seu trabalho é com muito capricho. Eletricista de qualidade."</p><div class="autor-avaliacao">Ingrid F.</div><div class="cidade-avaliacao">VRB</div></div>
-        </div>
-      </div>
-    </section>
-
-    <div class="faixa-cta aparecer">
-      <div class="conteudo-faixa-cta">
-        <p class="texto-menor-faixa">Sem enrolação</p>
-        <h2 class="titulo-faixa">Orçamento grátis,<br />resposta na hora.</h2>
-        <div class="acoes-faixa-cta">
-          <a class="botao-escuro" href="https://wa.me/5532988215255?text=Olá%20Marquinho%2C%20quero%20um%20orçamento%20e%20gostaria%20de%20mais%20informações." target="_blank">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
-            Chamar no WhatsApp
-          </a>
-          <a class="botao-whatsapp-faixa" href="tel:+5532999995255">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
-            Ligar: (32) 9 9999-5255
-          </a>
-        </div>
+      <div class="coluna-rodape">
+        <h3>Seções</h3>
+        <a href="#servicos">Serviços</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#faq">FAQ</a>
       </div>
     </div>
-
-    <section class="secao-contato">
-      <div class="container">
-        <div class="aparecer">
-          <p class="etiqueta-secao">Contato</p>
-          <h2 class="titulo-secao">Chame agora, <em>atendo hoje.</em></h2>
-        </div>
-        <div class="grade-contato">
-          <a class="cartao-contato aparecer" href="https://wa.me/5532988215255?text=Olá%20Marquinho%2C%20vim%20pelo%20site%20e%20quero%20falar%20sobre%20um%20serviço." target="_blank">
-            <div class="icone-contato"><i class="fa-brands fa-whatsapp"></i></div>
-            <div class="rotulo-contato">WhatsApp</div>
-            <div class="valor-contato">(32) 98821-5255</div>
-            <span class="botao-contato botao-contato-verde"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>Abrir conversa</span>
-          </a>
-          <a class="cartao-contato aparecer" href="tel:+5532999995255">
-            <div class="icone-contato"><i class="fa-solid fa-phone"></i></div>
-            <div class="rotulo-contato">Telefone</div>
-            <div class="valor-contato">(32) 99999-5255</div>
-            <span class="botao-contato botao-contato-amarelo"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>Ligar agora</span>
-          </a>
-          <a class="cartao-contato cartao-contato-largo aparecer" href="https://instagram.com/marquinhovrb1" target="_blank">
-            <div class="icone-contato"><i class="fa-brands fa-instagram"></i></div>
-            <div class="rotulo-contato">Instagram</div>
-            <div class="valor-contato">@marquinhovrb1</div>
-            <span class="botao-contato botao-contato-transparente"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" /></svg>Ver perfil</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <footer class="rodape">
-      <div class="marca-rodape">MARQUINHO <span>ELETRICISTA</span></div>
-      <div class="texto-rodape">© 2025 · VRB & Região</div>
-    </footer>
-  </div>
+  </footer>
 
   <script src="javascript/script.js"></script>
 </body>

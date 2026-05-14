@@ -1,320 +1,230 @@
-(function () {
-  const canvas = document.getElementById("canvas-faixas");
-  const contexto = canvas.getContext("2d");
-  let faiscas = [];
+const topoSite = document.querySelector(".topo-site");
+const botaoMenu = document.querySelector(".botao-menu");
+const menuSite = document.querySelector(".menu-site");
+const itensParaSurgir = document.querySelectorAll(".surgir");
+const numerosAnimados = document.querySelectorAll(".numero-destaque");
+const gruposDeAbas = document.querySelectorAll("[data-grupo-abas]");
+const linksDoMenu = document.querySelectorAll('.menu-site a[href^="#"]');
+const linksQueRolam = document.querySelectorAll('a[href^="#"]');
 
-  function ajustarCanvas() {
-    canvas.width = innerWidth;
-    canvas.height = innerHeight;
-  }
-
-  function criarFaisca() {
-    const angulo = Math.random() * Math.PI * 2;
-    const velocidade = 0.4 + Math.random() * 1.6;
-
-    faiscas.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      velocidadeX: Math.cos(angulo) * velocidade,
-      velocidadeY: Math.sin(angulo) * velocidade,
-      vida: 1,
-      tamanho: 0.7 + Math.random() * 1.5,
-      rastro: []
-    });
-  }
-
-  function animarFaiscas() {
-    contexto.clearRect(0, 0, canvas.width, canvas.height);
-
-    if (Math.random() < 0.07) {
-      criarFaisca();
-    }
-
-    faiscas = faiscas.filter((faisca) => faisca.vida > 0);
-
-    faiscas.forEach((faisca) => {
-      faisca.rastro.push({ x: faisca.x, y: faisca.y });
-
-      if (faisca.rastro.length > 9) {
-        faisca.rastro.shift();
-      }
-
-      faisca.x += faisca.velocidadeX;
-      faisca.y += faisca.velocidadeY;
-      faisca.velocidadeY += 0.012;
-      faisca.vida -= 0.02;
-
-      for (let i = 1; i < faisca.rastro.length; i += 1) {
-        const transparencia = (i / faisca.rastro.length) * faisca.vida * 0.5;
-        contexto.beginPath();
-        contexto.moveTo(faisca.rastro[i - 1].x, faisca.rastro[i - 1].y);
-        contexto.lineTo(faisca.rastro[i].x, faisca.rastro[i].y);
-        contexto.strokeStyle = `rgba(245,196,0,${transparencia})`;
-        contexto.lineWidth = faisca.tamanho * (i / faisca.rastro.length);
-        contexto.stroke();
-      }
-
-      contexto.beginPath();
-      contexto.arc(faisca.x, faisca.y, faisca.tamanho, 0, Math.PI * 2);
-      contexto.fillStyle = `rgba(245,196,0,${faisca.vida})`;
-      contexto.fill();
-    });
-
-    requestAnimationFrame(animarFaiscas);
-  }
-
-  ajustarCanvas();
-  addEventListener("resize", ajustarCanvas);
-  animarFaiscas();
-})();
-
-const barraNavegacao = document.getElementById("barra-navegacao");
-
-addEventListener(
-  "scroll",
-  () => barraNavegacao.classList.toggle("rolada", scrollY > 40),
-  { passive: true }
-);
-
-const observadorAparecer = new IntersectionObserver(
-  (entradas) => {
-    entradas.forEach((entrada) => {
-      if (entrada.isIntersecting) {
-        entrada.target.classList.add("visivel");
-        observadorAparecer.unobserve(entrada.target);
-      }
-    });
-  },
-  { threshold: 0.1 }
-);
-
-document.querySelectorAll(".aparecer").forEach((elemento) => {
-  observadorAparecer.observe(elemento);
-});
-
-document.querySelectorAll("a, button").forEach((elemento) => {
-  elemento.addEventListener("click", (evento) => {
-    const onda = document.createElement("span");
-    const retangulo = elemento.getBoundingClientRect();
-    const tamanho = Math.max(retangulo.width, retangulo.height);
-
-    onda.style.cssText = `position:absolute;width:${tamanho}px;height:${tamanho}px;left:${evento.clientX - retangulo.left - tamanho / 2}px;top:${evento.clientY - retangulo.top - tamanho / 2}px;background:rgba(255,255,255,.18);border-radius:50%;transform:scale(0);animation:onda .5s linear;pointer-events:none;`;
-
-    if (getComputedStyle(elemento).position === "static") {
-      elemento.style.position = "relative";
-    }
-
-    elemento.style.overflow = "hidden";
-    elemento.appendChild(onda);
-    setTimeout(() => onda.remove(), 550);
-  });
-});
-
-(function () {
-  const trilha = document.getElementById("trilha-carrossel");
-  const area = document.getElementById("area-carrossel");
-  const botaoAnterior = document.getElementById("botao-anterior");
-  const botaoProximo = document.getElementById("botao-proximo");
-  const paginacao = document.getElementById("paginacao-carrossel");
-
-  if (!trilha || !area || !botaoAnterior || !botaoProximo || !paginacao) {
+function atualizarTopoSite() {
+  if (!topoSite) {
     return;
   }
 
-  const slides = Array.from(trilha.querySelectorAll(".slide-carrossel"));
-  let indiceAtual = 0;
-  const ultimoIndice = slides.length - 1;
-  let inicioX = 0;
-  let inicioY = 0;
-  let arrastando = false;
-  let deslocamentoBase = 0;
-  let temporizador = null;
-  let movimentoHorizontal = false;
+  topoSite.classList.toggle("topo-baixo", window.scrollY > 18);
+}
 
-  slides.forEach((_, indice) => {
-    const bolinha = document.createElement("div");
-    bolinha.className = indice === 0 ? "bolinha-paginacao ativa" : "bolinha-paginacao";
-    bolinha.addEventListener("click", () => irParaSlide(indice));
-    paginacao.appendChild(bolinha);
+function fecharMenuSite() {
+  if (!botaoMenu || !menuSite) {
+    return;
+  }
+
+  botaoMenu.setAttribute("aria-expanded", "false");
+  menuSite.classList.remove("aberto");
+}
+
+function rolarAteSecao(idDaSecao) {
+  if (idDaSecao === "#inicio") {
+    const inicioAtual = window.scrollY;
+    const duracao = 650;
+    let inicioDaAnimacao = null;
+
+    function animarVoltaAoTopo(tempoAtual) {
+      if (!inicioDaAnimacao) {
+        inicioDaAnimacao = tempoAtual;
+      }
+
+      const tempoPassado = tempoAtual - inicioDaAnimacao;
+      const progresso = Math.min(tempoPassado / duracao, 1);
+      const progressoSuave = 1 - Math.pow(1 - progresso, 3);
+
+      window.scrollTo(0, inicioAtual * (1 - progressoSuave));
+
+      if (progresso < 1) {
+        requestAnimationFrame(animarVoltaAoTopo);
+      }
+    }
+
+    requestAnimationFrame(animarVoltaAoTopo);
+    return;
+  }
+
+  const secao = document.querySelector(idDaSecao);
+
+  if (!secao) {
+    return;
+  }
+
+  const alturaDoTopo = topoSite ? topoSite.offsetHeight : 0;
+  const posicaoDaSecao = secao.getBoundingClientRect().top + window.scrollY - alturaDoTopo - 12;
+  const inicio = window.scrollY;
+  const distancia = posicaoDaSecao - inicio;
+  const duracao = 650;
+  let inicioDaAnimacao = null;
+
+  function animarRolagem(tempoAtual) {
+    if (!inicioDaAnimacao) {
+      inicioDaAnimacao = tempoAtual;
+    }
+
+    const tempoPassado = tempoAtual - inicioDaAnimacao;
+    const progresso = Math.min(tempoPassado / duracao, 1);
+    const progressoSuave = 1 - Math.pow(1 - progresso, 3);
+
+    window.scrollTo(0, inicio + distancia * progressoSuave);
+
+    if (progresso < 1) {
+      requestAnimationFrame(animarRolagem);
+    }
+  }
+
+  requestAnimationFrame(animarRolagem);
+}
+
+if (botaoMenu && menuSite) {
+  botaoMenu.addEventListener("click", () => {
+    const menuEstaAberto = botaoMenu.getAttribute("aria-expanded") === "true";
+    botaoMenu.setAttribute("aria-expanded", String(!menuEstaAberto));
+    menuSite.classList.toggle("aberto", !menuEstaAberto);
   });
 
-  function atualizarControles() {
-    if (conteudoCabeNaArea()) {
-      botaoAnterior.classList.add("desativado");
-      botaoProximo.classList.add("desativado");
+  menuSite.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", fecharMenuSite);
+  });
+
+  window.addEventListener("keydown", (evento) => {
+    if (evento.key === "Escape") {
+      fecharMenuSite();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) {
+      fecharMenuSite();
+    }
+  });
+}
+
+linksQueRolam.forEach((link) => {
+  link.addEventListener("click", (evento) => {
+    const destino = link.getAttribute("href");
+
+    if (!destino || !destino.startsWith("#")) {
       return;
     }
 
-    paginacao.querySelectorAll(".bolinha-paginacao").forEach((bolinha, indice) => {
-      bolinha.classList.toggle("ativa", indice === indiceAtual);
+    const secaoExiste = document.querySelector(destino);
+
+    if (!secaoExiste) {
+      return;
+    }
+
+    evento.preventDefault();
+    fecharMenuSite();
+    rolarAteSecao(destino);
+  });
+});
+
+window.addEventListener("scroll", atualizarTopoSite, { passive: true });
+window.addEventListener("load", atualizarTopoSite);
+
+gruposDeAbas.forEach((grupo) => {
+  const botoesDasAbas = Array.from(grupo.querySelectorAll("[data-botao-aba]"));
+  const paineisDasAbas = Array.from(grupo.querySelectorAll("[data-painel-aba]"));
+
+  if (botoesDasAbas.length === 0 || paineisDasAbas.length === 0) {
+    return;
+  }
+
+  function pausarVideosDasAbas() {
+    paineisDasAbas.forEach((painel) => {
+      painel.querySelectorAll("video").forEach((video) => {
+        video.pause();
+      });
+    });
+  }
+
+  function abrirAba(nomeDaAba) {
+    botoesDasAbas.forEach((botao) => {
+      const estaAtiva = botao.dataset.botaoAba === nomeDaAba;
+      botao.classList.toggle("ativo", estaAtiva);
+      botao.setAttribute("aria-selected", String(estaAtiva));
     });
 
-    botaoAnterior.classList.toggle("desativado", indiceAtual === 0);
-    botaoProximo.classList.toggle("desativado", indiceAtual === ultimoIndice);
+    paineisDasAbas.forEach((painel) => {
+      const estaAtivo = painel.dataset.painelAba === nomeDaAba;
+      painel.classList.toggle("ativo", estaAtivo);
+      painel.hidden = !estaAtivo;
+    });
+
+    pausarVideosDasAbas();
   }
 
-  function calcularDeslocamento(indice) {
-    const larguraSlide = slides[0].offsetWidth + 16;
-    const larguraArea = area.clientWidth;
-    const deslocamento = indice * larguraSlide - (larguraArea / 2 - larguraSlide / 2);
-    return -Math.max(0, deslocamento);
-  }
-
-  function conteudoCabeNaArea() {
-    if (slides.length === 0) {
-      return true;
-    }
-
-    const larguraSlides = slides.reduce((total, slide) => total + slide.offsetWidth, 0);
-    const larguraGaps = (slides.length - 1) * 16;
-    const larguraTotal = larguraSlides + larguraGaps;
-
-    return larguraTotal <= area.clientWidth;
-  }
-
-  function irParaSlide(indice) {
-    indiceAtual = Math.max(0, Math.min(indice, ultimoIndice));
-
-    if (conteudoCabeNaArea()) {
-      trilha.style.transition = "transform .45s cubic-bezier(.25,.46,.45,.94)";
-      trilha.style.justifyContent = "center";
-      trilha.style.paddingLeft = "0";
-      trilha.style.paddingRight = "0";
-      trilha.style.transform = "translateX(0)";
-      indiceAtual = 0;
-      atualizarControles();
-      return;
-    }
-
-    trilha.style.justifyContent = "";
-    trilha.style.paddingLeft = "";
-    trilha.style.paddingRight = "";
-    trilha.style.transition = "transform .45s cubic-bezier(.25,.46,.45,.94)";
-    trilha.style.transform = `translateX(${calcularDeslocamento(indiceAtual)}px)`;
-    atualizarControles();
-  }
-
-  function iniciarTrocaAutomatica() {
-    temporizador = setInterval(() => {
-      irParaSlide(indiceAtual < ultimoIndice ? indiceAtual + 1 : 0);
-    }, 4500);
-  }
-
-  function pararTrocaAutomatica() {
-    clearInterval(temporizador);
-  }
-
-  botaoAnterior.addEventListener("click", () => irParaSlide(indiceAtual - 1));
-  botaoProximo.addEventListener("click", () => irParaSlide(indiceAtual + 1));
-
-  area.addEventListener("pointerdown", (evento) => {
-    inicioX = evento.clientX;
-    inicioY = evento.clientY;
-    deslocamentoBase = calcularDeslocamento(indiceAtual);
-    arrastando = true;
-    movimentoHorizontal = false;
-    trilha.style.transition = "none";
-    area.setPointerCapture(evento.pointerId);
-    pararTrocaAutomatica();
+  botoesDasAbas.forEach((botao) => {
+    botao.addEventListener("click", () => {
+      abrirAba(botao.dataset.botaoAba);
+    });
   });
 
-  area.addEventListener("pointermove", (evento) => {
-    if (!arrastando) {
-      return;
-    }
+  abrirAba(botoesDasAbas[0].dataset.botaoAba);
+});
 
-    const diferencaX = evento.clientX - inicioX;
-    const diferencaY = evento.clientY - inicioY;
-
-    if (!movimentoHorizontal) {
-      movimentoHorizontal = Math.abs(diferencaX) > Math.abs(diferencaY);
-    }
-
-    if (!movimentoHorizontal) {
-      return;
-    }
-
-    trilha.style.transform = `translateX(${deslocamentoBase + diferencaX}px)`;
-  });
-
-  area.addEventListener("pointerup", (evento) => {
-    if (!arrastando) {
-      return;
-    }
-
-    arrastando = false;
-    const diferenca = evento.clientX - inicioX;
-
-    if (!movimentoHorizontal) {
-      irParaSlide(indiceAtual);
-    } else if (diferenca < -50) {
-      irParaSlide(indiceAtual + 1);
-    } else if (diferenca > 50) {
-      irParaSlide(indiceAtual - 1);
-    } else {
-      irParaSlide(indiceAtual);
-    }
-
-    pararTrocaAutomatica();
-    iniciarTrocaAutomatica();
-  });
-
-  area.addEventListener("pointercancel", () => {
-    if (!arrastando) {
-      return;
-    }
-
-    arrastando = false;
-    irParaSlide(indiceAtual);
-    pararTrocaAutomatica();
-    iniciarTrocaAutomatica();
-  });
-
-  addEventListener("resize", () => {
-    irParaSlide(indiceAtual);
-  });
-
-  irParaSlide(0);
-  iniciarTrocaAutomatica();
-})();
-
-(function () {
-  const numeros = document.querySelectorAll(".numero-estatistica[data-target]");
-
-  const observadorContador = new IntersectionObserver(
+if ("IntersectionObserver" in window) {
+  const observadorDosBlocos = new IntersectionObserver(
     (entradas) => {
       entradas.forEach((entrada) => {
         if (!entrada.isIntersecting) {
           return;
         }
 
-        const elemento = entrada.target;
-        const valorFinal = Number(elemento.dataset.target);
-        const sufixo = elemento.dataset.suf || "";
-        let tempoInicial = null;
+        entrada.target.classList.add("visivel");
+        observadorDosBlocos.unobserve(entrada.target);
+      });
+    },
+    { threshold: 0.14, rootMargin: "0px 0px -40px 0px" }
+  );
 
-        function animarNumero(tempoAtual) {
-          if (!tempoInicial) {
-            tempoInicial = tempoAtual;
+  itensParaSurgir.forEach((item) => observadorDosBlocos.observe(item));
+
+  const observadorDosNumeros = new IntersectionObserver(
+    (entradas) => {
+      entradas.forEach((entrada) => {
+        if (!entrada.isIntersecting) {
+          return;
+        }
+
+        const numero = entrada.target;
+        const valorFinal = Number(numero.dataset.valorFinal || 0);
+        const sufixo = numero.dataset.sufixo || "";
+        const tempoDaAnimacao = 1200;
+        let instanteInicial = null;
+
+        function animarNumero(instanteAtual) {
+          if (!instanteInicial) {
+            instanteInicial = instanteAtual;
           }
 
-          const progresso = Math.min((tempoAtual - tempoInicial) / 1100, 1);
-          const suavizacao = progresso < 0.5 ? 2 * progresso * progresso : (4 - 2 * progresso) * progresso - 1;
-          elemento.textContent = Math.round(suavizacao * valorFinal) + sufixo;
+          const andamento = Math.min((instanteAtual - instanteInicial) / tempoDaAnimacao, 1);
+          const andamentoSuave = 1 - Math.pow(1 - andamento, 3);
+          numero.textContent = `${Math.round(valorFinal * andamentoSuave)}${sufixo}`;
 
-          if (progresso < 1) {
+          if (andamento < 1) {
             requestAnimationFrame(animarNumero);
           }
         }
 
         requestAnimationFrame(animarNumero);
-        observadorContador.unobserve(elemento);
+        observadorDosNumeros.unobserve(numero);
       });
     },
-    { threshold: 0.85 }
+    { threshold: 0.45 }
   );
 
-  numeros.forEach((numero) => {
-    observadorContador.observe(numero);
+  numerosAnimados.forEach((numero) => observadorDosNumeros.observe(numero));
+} else {
+  itensParaSurgir.forEach((item) => item.classList.add("visivel"));
+  numerosAnimados.forEach((numero) => {
+    numero.textContent = `${numero.dataset.valorFinal || "0"}${numero.dataset.sufixo || ""}`;
   });
-})();
+}
