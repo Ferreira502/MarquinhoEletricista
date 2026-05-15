@@ -1102,6 +1102,16 @@ button {
     max-width: 100%;
   }
 
+  .grade-servicos,
+  .grade-diferenciais,
+  .grade-processo,
+  .grade-avaliacoes,
+  .grade-fotos,
+  .grade-videos,
+  .lista-faq {
+    justify-items: center;
+  }
+
   .abertura-acoes,
   .acoes-cta {
     flex-direction: column;
@@ -1210,6 +1220,46 @@ button {
     box-sizing: border-box;
   }
 
+  .card-servico,
+  .card-diferencial,
+  .card-processo,
+  .card-avaliacao,
+  .card-portfolio,
+  .item-faq,
+  .caixa-cobertura,
+  .faixa-grade,
+  .caixa-cta,
+  .abertura-texto,
+  .painel-abertura {
+    max-width: 31rem;
+  }
+
+  .card-servico,
+  .card-diferencial,
+  .card-processo,
+  .card-avaliacao,
+  .card-portfolio,
+  .item-faq,
+  .caixa-cobertura {
+    text-align: left;
+  }
+
+  .card-processo {
+    align-items: flex-start;
+  }
+
+  .card-processo > div {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .card-avaliacao,
+  .card-servico,
+  .card-diferencial,
+  .card-processo {
+    min-height: 100%;
+  }
+
   .abertura-texto,
   .painel-abertura,
   .faixa-grade,
@@ -1240,6 +1290,20 @@ button {
   .topo-site .largura-site,
   .rodape-site .largura-site {
     width: calc(100% - 0.75rem);
+  }
+
+  .card-servico,
+  .card-diferencial,
+  .card-processo,
+  .card-avaliacao,
+  .card-portfolio,
+  .item-faq,
+  .caixa-cobertura,
+  .faixa-grade,
+  .caixa-cta,
+  .abertura-texto,
+  .painel-abertura {
+    max-width: 100%;
   }
 
   .abertura-texto,
