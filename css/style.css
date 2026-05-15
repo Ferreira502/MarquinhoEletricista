@@ -1023,11 +1023,28 @@ button {
 
 @media (max-width: 680px) {
   .largura-site {
-    width: calc(100% - 1rem);
+    width: min(calc(100% - 1rem), 32rem);
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .abertura {
     padding-top: 1.4rem;
+  }
+
+  .abertura-texto,
+  .painel-abertura,
+  .faixa-grade,
+  .card-servico,
+  .card-diferencial,
+  .card-processo,
+  .card-portfolio,
+  .card-avaliacao,
+  .caixa-cobertura,
+  .item-faq,
+  .caixa-cta {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .abertura h1,
@@ -1140,6 +1157,14 @@ button {
     box-sizing: border-box;
   }
 
+  .abertura-texto,
+  .painel-abertura,
+  .faixa-grade,
+  .caixa-cta,
+  .grade-rodape {
+    overflow: hidden;
+  }
+
   .grade-rodape > div:first-child {
     grid-column: auto;
   }
@@ -1151,7 +1176,7 @@ button {
   }
 
   .largura-site {
-    width: calc(100% - 0.75rem);
+    width: min(calc(100% - 0.75rem), 30rem);
   }
 
   .abertura-texto,
