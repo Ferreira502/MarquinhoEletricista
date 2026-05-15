@@ -1022,14 +1022,35 @@ button {
 }
 
 @media (max-width: 680px) {
-  .largura-site {
+  main .largura-site {
     width: min(calc(100% - 1rem), 32rem);
     margin-left: auto;
     margin-right: auto;
   }
 
+  .topo-site .largura-site,
+  .rodape-site .largura-site {
+    width: calc(100% - 1rem);
+    max-width: none;
+  }
+
   .abertura {
     padding-top: 1.4rem;
+  }
+
+  .abertura-grade,
+  .area-processo,
+  .area-portfolio,
+  .caixa-cobertura,
+  .faixa-grade,
+  .caixa-cta,
+  .grade-cards,
+  .grade-processo,
+  .grade-portfolio,
+  .grade-avaliacoes,
+  .lista-faq,
+  .abertura-lateral {
+    justify-items: center;
   }
 
   .abertura-texto,
@@ -1056,6 +1077,29 @@ button {
     max-width: none;
     overflow-wrap: anywhere;
     word-break: break-word;
+  }
+
+  .abertura-texto,
+  .cabecalho-bloco,
+  .texto-processo,
+  .texto-cobertura,
+  .caixa-cta,
+  .faixa-grade {
+    text-align: center;
+  }
+
+  .cabecalho-bloco,
+  .texto-processo,
+  .texto-cobertura,
+  .abertura-texto,
+  .abertura-lateral,
+  .caixa-cobertura,
+  .area-portfolio,
+  .area-processo,
+  .lista-faq,
+  .caixa-cta {
+    width: 100%;
+    max-width: 100%;
   }
 
   .abertura-acoes,
@@ -1090,7 +1134,7 @@ button {
   .abertura-contato {
     flex-direction: column;
     gap: 0.6rem;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .lista-abas-portfolio {
@@ -1110,6 +1154,14 @@ button {
 
   .lista-cobertura {
     justify-content: center;
+  }
+
+  .texto-cobertura,
+  .lista-cobertura,
+  .cabecalho-bloco,
+  .texto-processo,
+  .caixa-cta > div:first-child {
+    justify-self: center;
   }
 
   .caixa-cta {
@@ -1148,6 +1200,7 @@ button {
   .card-servico,
   .card-diferencial,
   .card-processo,
+  .card-numero,
   .item-faq,
   .caixa-cobertura,
   .caixa-cta,
@@ -1168,6 +1221,11 @@ button {
   .grade-rodape > div:first-child {
     grid-column: auto;
   }
+
+  .botao-whatsapp {
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
+  }
 }
 
 @media (max-width: 420px) {
@@ -1175,8 +1233,13 @@ button {
     display: none;
   }
 
-  .largura-site {
+  main .largura-site {
     width: min(calc(100% - 0.75rem), 30rem);
+  }
+
+  .topo-site .largura-site,
+  .rodape-site .largura-site {
+    width: calc(100% - 0.75rem);
   }
 
   .abertura-texto,
@@ -1184,6 +1247,7 @@ button {
   .card-servico,
   .card-diferencial,
   .card-processo,
+  .card-numero,
   .card-avaliacao,
   .caixa-cobertura,
   .item-faq,
