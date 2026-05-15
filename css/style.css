@@ -1,11 +1,26 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
+  width: 100%;
+  max-width: 100%;
   color: #1a1a1a;
   font-family: "Manrope", sans-serif;
   background: linear-gradient(180deg, #ffffff 0%, #fffdf7 45%, #fff8e9 100%);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 header,
@@ -1023,15 +1038,20 @@ button {
 
 @media (max-width: 680px) {
   main .largura-site {
-    width: min(calc(100% - 1rem), 32rem);
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    max-width: none;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .topo-site .largura-site,
   .rodape-site .largura-site {
-    width: calc(100% - 1rem);
+    width: 100%;
     max-width: none;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 
   .abertura {
@@ -1231,6 +1251,7 @@ button {
   .caixa-cta,
   .abertura-texto,
   .painel-abertura {
+    width: min(100%, 31rem);
     max-width: 31rem;
   }
 
@@ -1284,12 +1305,14 @@ button {
   }
 
   main .largura-site {
-    width: min(calc(100% - 0.75rem), 30rem);
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
   }
 
   .topo-site .largura-site,
   .rodape-site .largura-site {
-    width: calc(100% - 0.75rem);
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
   }
 
   .card-servico,
